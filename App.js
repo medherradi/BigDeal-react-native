@@ -3,13 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ImageScreen from './app/screens/ImageScreen';
 import AppButton from './app/components/AppButton';
+import AppText from './app/components/AppText';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <AppButton text='Login' onPress={() => console.log('Login')} />
-    </View>
-
+    <WelcomeScreen />
   );
 }
 

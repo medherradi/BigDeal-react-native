@@ -6,7 +6,7 @@ const colors = {
   secondary: '#457b9d',
   third: '#a8dadc',
   esthetic: '#ec9a9a',
-  pefect: '#e63946'
+  perfect: '#e63946',
 }
 
 export default colors
