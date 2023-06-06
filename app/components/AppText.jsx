@@ -1,9 +1,9 @@
 import { Platform, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function AppText({ children }) {
+export default function AppText({ children, style }) {
   return (
-    <Text style={styles.text}>{children}</Text>
+    <Text style={[styles.text, { ...style }]}>{children}</Text>
   )
 }
 
