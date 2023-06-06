@@ -6,26 +6,15 @@ import AppButton from './app/components/AppButton';
 import AppText from './app/components/AppText';
 import AppCard from './app/components/AppCard';
 import colors from './app/config/colors';
+import ProductDetailScreen from './app/screens/ProductDetailScreen';
 
 
 export default function App() {
   return (
-    <ScrollView style={styles.container}>
-      <AppCard />
-      <AppCard />
-      <AppCard />
-      <AppCard />
-      <AppCard />
-    </ScrollView>
+    <ProductDetailScreen />
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-    paddingRight: 10,
-    paddingLeft: 10,
-    backgroundColor: colors.background,
-  }
 });
