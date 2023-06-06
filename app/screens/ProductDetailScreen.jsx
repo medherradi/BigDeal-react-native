@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import AppText from '../components/AppText'
 import colors from '../config/colors'
+import AppProfile from '../components/AppProfile'
 
 
 export default function ProductDetailScreen() {
@@ -11,6 +12,7 @@ export default function ProductDetailScreen() {
       <View style={styles.content}>
         <AppText style={styles.name}>table for home</AppText>
         <AppText style={styles.price}>$150</AppText>
+        <AppProfile />
       </View>
     </View>
   )
@@ -19,7 +21,7 @@ export default function ProductDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.nwbackground
+    backgroundColor: colors.light,
   },
   img: {
     width: '100%',
