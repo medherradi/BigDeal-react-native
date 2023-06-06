@@ -5,7 +5,7 @@ const colors = {
   background: '#f1faee',
   light: '#e9ecef',
   white: '#ffffff',
-  layer: '#46494c',
+  layer: '#6e6969',
   secondary: '#457b9d',
   third: '#a8dadc',
   esthetic: '#ec9a9a',

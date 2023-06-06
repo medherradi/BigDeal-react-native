@@ -11,7 +11,7 @@ export default function ProductDetailScreen() {
       <Image style={styles.img} source={require('../assets/tab.jpg')} />
       <View style={styles.content}>
         <AppText style={styles.name}>table for home</AppText>
-        <AppText style={styles.price}>$150</AppText>
+        <AppText style={styles.price}>$1200</AppText>
         <AppProfile />
       </View>
     </View>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '800',
     color: colors.secondary,
-    letterSpacing: 2
+    letterSpacing: 2,
+    marginBottom: 4,
   }
 })

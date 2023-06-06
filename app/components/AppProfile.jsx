@@ -19,12 +19,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     columnGap: 10,
-    marginTop: 15,
     borderRadius: 10,
     padding: 5,
     paddingTop: 10,
     paddingBottom: 10,
     backgroundColor: colors.white,
+  },
+  content: {
+    justifyContent: 'center',
   },
   img: {
     width: 50,
@@ -37,5 +39,6 @@ const styles = StyleSheet.create({
   },
   gmail: {
     color: colors.layer,
+    fontWeight: '700',
   }
 })

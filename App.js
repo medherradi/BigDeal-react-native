@@ -11,7 +11,7 @@ import ProductDetailScreen from './app/screens/ProductDetailScreen';
 
 export default function App() {
   return (
-    <ProductDetailScreen />
+    <ImageScreen />
   );
 }
 
