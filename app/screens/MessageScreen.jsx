@@ -1,7 +1,9 @@
-import { StyleSheet, View, FlatList } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import React from 'react'
-import AppText from '../components/AppText'
 import AppMessage from '../components/AppMessage'
+import colors from '../config/colors'
+import AppScreen from '../components/AppScreen'
+import AppSeparator from '../components/AppSeparator'
 
 const messages = [
   {
@@ -13,23 +15,28 @@ const messages = [
   {
     id: 2,
     name: 'sarra',
-    content: 'can you give us a good price',
+    content: 'can you give us a good price hhhh',
     picture: require('../assets/profile.jpg'),
   }
 ]
 
 export default function MessageScreen() {
   return (
-    <View>
-      <FlatList data={messages}
+    <AppScreen>
+      <FlatList style={styles.flatList} data={messages}
         keyExtractor={(msg) => msg.id.toString()}
         renderItem={({ item }) => {
           return <AppMessage {...item} />
         }}
+        ItemSeparatorComponent={() => <AppSeparator />}
       />
-    </View>
+    </AppScreen>
   )
 }
 
 const styles = StyleSheet.create({
+  flatList: {
+    marginTop: 20,
+  }
+
 })

@@ -3,7 +3,9 @@ import React from 'react'
 
 export default function AppText({ children, style }) {
   return (
-    <Text style={[styles.text, { ...style }]}>{children}</Text>
+
+    <Text style={[styles.text, style]}>{children}</Text>
+
   )
 }
 

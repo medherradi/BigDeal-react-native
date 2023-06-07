@@ -10,6 +10,7 @@ const colors = {
   third: '#a8dadc',
   esthetic: '#ec9a9a',
   perfect: '#e63946',
+  separator: '#e5e5e5',
 }
 
 export default colors
