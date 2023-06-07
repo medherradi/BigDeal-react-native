@@ -9,7 +9,7 @@ export default function AppProfile() {
       <Image style={styles.img} source={require('../assets/profile.jpg')} />
       <View style={styles.content}>
         <AppText style={styles.name}>Sarra</AppText>
-        <AppText style={styles.gmail}>sarra@gmail.com</AppText>
+        <AppText style={styles.gmail}>sarra-1990@gmail.com</AppText>
       </View>
     </View>
   )
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
   },
   gmail: {
     color: colors.layer,
-    fontWeight: '700',
+    fontWeight: '500',
   }
 })

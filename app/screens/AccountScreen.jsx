@@ -1,32 +1,43 @@
-import { StyleSheet, View } from 'react-native'
+import { FlatList, StyleSheet, TouchableHighlight, View } from 'react-native'
 import React from 'react'
 import AppScreen from '../components/AppScreen'
 import AppProfile from '../components/AppProfile'
 import AppConfigProfile from '../components/AppConfigProfile'
+import settings from '../config/settings'
+import AppSeparator from '../components/AppSeparator'
+import colors from '../config/colors'
 
 export default function AccountScreen() {
   return (
     <AppScreen>
-      <View style={styles.appprofile}>
-        <AppProfile />
-      </View>
+      <TouchableHighlight onPress={() => console.log('myprofile')} underlayColor={colors.light}>
+        <View style={styles.appprofile}>
+          <AppProfile />
+        </View>
+      </TouchableHighlight>
 
-      <View style={styles.config}>
-        <AppConfigProfile />
+      <View style={styles.settings}>
+        <FlatList
+          data={settings}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <AppConfigProfile {...item} onPress={() => console.log(item.title)} />}
+          ItemSeparatorComponent={() => <AppSeparator />}
+        />
       </View>
 
       <View style={styles.logout}>
-        <AppConfigProfile />
+        <AppConfigProfile name='logout' title='Logout' />
       </View>
     </AppScreen>
   )
 }
 
 const styles = StyleSheet.create({
-  appprofile: {
-    marginTop: 10,
+  settings: {
+    marginTop: 30,
   },
-  config: {
-    marginVertical: 50,
-  },
+  logout: {
+    marginTop: 30,
+  }
+
 })
