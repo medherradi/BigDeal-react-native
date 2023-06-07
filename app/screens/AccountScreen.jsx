@@ -20,24 +20,31 @@ export default function AccountScreen() {
         <FlatList
           data={settings}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <AppConfigProfile {...item} onPress={() => console.log(item.title)} />}
+          renderItem={({ item }) =>
+            <TouchableHighlight onPress={() => console.log(item)} underlayColor={colors.light}>
+              <View>
+                <AppConfigProfile {...item} />
+              </View>
+            </TouchableHighlight>
+          }
           ItemSeparatorComponent={() => <AppSeparator />}
         />
       </View>
-
-      <View style={styles.logout}>
-        <AppConfigProfile name='logout' title='Logout' />
-      </View>
+      <TouchableHighlight onPress={() => console.log('logout')} underlayColor={colors.light}>
+        <View style={styles.logout}>
+          <AppConfigProfile name='logout' title='Logout' />
+        </View>
+      </TouchableHighlight>
     </AppScreen>
   )
 }
 
 const styles = StyleSheet.create({
   settings: {
-    marginTop: 30,
+    marginTop: 40,
   },
   logout: {
-    marginTop: 30,
+    marginTop: 40,
   }
 
 })

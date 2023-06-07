@@ -4,16 +4,16 @@ import colors from '../config/colors'
 import AppText from './AppText'
 import AppIcon from './AppIcon'
 
-export default function AppConfigProfile({ name, title, onPress }) {
+export default function AppConfigProfile({ name, title }) {
   return (
-    <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
-      <View style={styles.container}>
-        <AppIcon name={name} />
-        <View style={styles.content}>
-          <AppText style={styles.title}>{title}</AppText>
-        </View>
+
+    <View style={styles.container}>
+      <AppIcon name={name} />
+      <View style={styles.content}>
+        <AppText style={styles.title}>{title}</AppText>
       </View>
-    </TouchableHighlight>
+    </View>
+
   )
 }
 
