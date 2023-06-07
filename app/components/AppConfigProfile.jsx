@@ -1,15 +1,14 @@
-import { Image, StyleSheet, View } from 'react-native'
+import { StyleSheet, Image, View } from 'react-native'
 import React from 'react'
-import AppText from './AppText'
 import colors from '../config/colors'
+import AppText from './AppText'
 
-export default function AppProfile() {
+export default function AppConfigProfile() {
   return (
     <View style={styles.container}>
       <Image style={styles.img} source={require('../assets/profile.jpg')} />
       <View style={styles.content}>
         <AppText style={styles.name}>Sarra</AppText>
-        <AppText style={styles.gmail}>sarra@gmail.com</AppText>
       </View>
     </View>
   )
@@ -29,16 +28,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   img: {
-    width: 60,
-    height: 60,
+    width: 40,
+    height: 40,
     borderRadius: 30,
   },
   name: {
     fontSize: 15,
     fontWeight: '800'
-  },
-  gmail: {
-    color: colors.layer,
-    fontWeight: '700',
   }
 })

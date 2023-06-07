@@ -8,11 +8,12 @@ import AppCard from './app/components/AppCard';
 import colors from './app/config/colors';
 import ProductDetailScreen from './app/screens/ProductDetailScreen';
 import MessageScreen from './app/screens/MessageScreen';
+import AccountScreen from './app/screens/AccountScreen';
 
 
 export default function App() {
   return (
-    <MessageScreen />
+    <AccountScreen />
   );
 }
 

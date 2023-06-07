@@ -1,5 +1,5 @@
 import { StyleSheet, FlatList, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import AppMessage from '../components/AppMessage'
 import colors from '../config/colors'
 import AppScreen from '../components/AppScreen'
@@ -7,7 +7,7 @@ import AppSeparator from '../components/AppSeparator'
 import AppText from '../components/AppText'
 import AppSwipe from '../components/AppSwipe'
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     name: 'ahmed',
@@ -23,6 +23,13 @@ const messages = [
 ]
 
 export default function MessageScreen() {
+  const [messages, setMessages] = useState(initialMessages)
+  const [isRrefresh, setIsRefresh] = useState(false)
+
+  const handleDelete = (message) => {
+    setMessages(messages.filter((msg) => msg.id !== message.id))
+  }
+
   return (
     <AppScreen>
       <FlatList style={styles.flatList}
@@ -32,9 +39,18 @@ export default function MessageScreen() {
           return <AppMessage
             {...item}
             onPress={() => console.log(item)}
-            renderRightActions={() => (<AppSwipe onPress={() => console.log(messages.filter((msg) => msg.id !== item.id))} />)} />
+            renderRightActions={() => (<AppSwipe onPress={() =>
+              handleDelete(item)
+            } />)} />
         }}
         ItemSeparatorComponent={AppSeparator}
+        refreshing={isRrefresh}
+        onRefresh={() => setMessages([{
+          id: 2,
+          name: 'sarra',
+          content: 'can you give us a good price hhhh',
+          picture: require('../assets/profile.jpg'),
+        }])}
       />
     </AppScreen>
   )
