@@ -18,6 +18,12 @@ const settings = [
   },
   {
     id: 4,
+    title: 'Updade',
+    name: 'update',
+
+  },
+  {
+    id: 5,
     title: 'Settings',
     name: 'settings',
   },
