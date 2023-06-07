@@ -1,9 +1,11 @@
-import { StyleSheet, FlatList } from 'react-native'
+import { StyleSheet, FlatList, View } from 'react-native'
 import React from 'react'
 import AppMessage from '../components/AppMessage'
 import colors from '../config/colors'
 import AppScreen from '../components/AppScreen'
 import AppSeparator from '../components/AppSeparator'
+import AppText from '../components/AppText'
+import AppSwipe from '../components/AppSwipe'
 
 const messages = [
   {
@@ -23,12 +25,16 @@ const messages = [
 export default function MessageScreen() {
   return (
     <AppScreen>
-      <FlatList style={styles.flatList} data={messages}
+      <FlatList style={styles.flatList}
+        data={messages}
         keyExtractor={(msg) => msg.id.toString()}
         renderItem={({ item }) => {
-          return <AppMessage {...item} />
+          return <AppMessage
+            {...item}
+            onPress={() => console.log(item)}
+            renderRightActions={() => (<AppSwipe onPress={() => console.log(messages.filter((msg) => msg.id !== item.id))} />)} />
         }}
-        ItemSeparatorComponent={() => <AppSeparator />}
+        ItemSeparatorComponent={AppSeparator}
       />
     </AppScreen>
   )
