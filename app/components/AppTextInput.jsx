@@ -1,14 +1,13 @@
 import { StyleSheet, View, TextInput, Platform } from 'react-native'
 import React from 'react'
-import AppScreen from './AppScreen'
 import { MaterialIcons } from '@expo/vector-icons'
 import colors from '../config/colors'
 
-export default function AppTextInput({ name, placeholder, secureEntry = false, value, onChange }) {
+export default function AppTextInput({ name, placeholder, secureEntry = false, value, onChangeText }) {
   return (
     <View style={styles.input}>
       <MaterialIcons name={name} size={30} color={colors.secondary} />
-      <TextInput value={value} onChange={onChange} autoCorrect={false} secureTextEntry={secureEntry} placeholder={placeholder} maxLength={30} style={styles.data} />
+      <TextInput value={value} onChangeText={onChangeText} autoCorrect={false} secureTextEntry={secureEntry} placeholder={placeholder} maxLength={30} style={styles.data} />
     </View>
   )
 }
