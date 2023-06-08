@@ -13,13 +13,12 @@ import ListingScreen from './app/screens/ListingScreen';
 import AppTextInput from './app/components/AppTextInput';
 import AppScreen from './app/components/AppScreen';
 import AppPicker from './app/components/AppPicker';
+import LoginScreen from './app/screens/LoginScreen';
 
 
 export default function App() {
   return (
-    <AppScreen>
-      <AppPicker name='apps' category='Category' />
-    </AppScreen>
+    <LoginScreen />
 
   );
 }
