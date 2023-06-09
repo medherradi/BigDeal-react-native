@@ -1,11 +1,10 @@
 import { Image, StyleSheet } from 'react-native'
 import React from 'react'
 import AppScreen from '../components/AppScreen'
-import AppTextInput from '../components/AppTextInput'
-import AppButton from '../components/AppButton'
-import { Formik } from 'formik'
 import * as yup from 'yup'
-import AppErrorMessage from '../components/AppErrorMessage'
+import AppInputForm from '../components/AppInputForm'
+import AppSubmitForm from '../components/AppSubmitForm'
+import AppFormik from '../components/AppFormik'
 
 const validationSchema = yup.object().shape({
   email: yup.string().required().email().label('Email'),
@@ -17,39 +16,24 @@ export default function LoginScreen() {
   return (
     <AppScreen style={styles.login}>
       <Image style={styles.img} source={require('../assets/logo.png')} />
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        onSubmit={values => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        {({ handleChange, handleSubmit, values, setFieldTouched, errors, touched }) => (
-          <>
-            <AppTextInput
-              value={values.email}
-              onChangeText={handleChange('email')}
-              name='mail'
-              onBlur={() => setFieldTouched('email')}
-              placeholder='Enter Your Email'
-            />
-            <AppErrorMessage error={errors.email} visible={touched.email}>{errors.email}</AppErrorMessage>
-            <AppTextInput
-              value={values.password}
-              onChangeText={handleChange('password')}
-              secureEntry={true}
-              name='lock'
-              onBlur={() => setFieldTouched('password')}
-              placeholder='Enter Your Password'
-            />
-            <AppErrorMessage error={errors.password} visible={touched.password}>{errors.password}</AppErrorMessage>
-            <AppButton
-              text='Login'
-              background='secondary'
-              onPress={handleSubmit}
-            />
-          </>
-        )
-        }
-      </Formik>
+      <AppFormik validationSchema={validationSchema} onSubmit={(values) => console.log(values)} initialValues={{ email: '', password: '' }}>
+
+        <AppInputForm
+          name='mail'
+          placeholder='Enter your email'
+          field='email'
+        />
+        <AppInputForm
+          name='lock'
+          placeholder='Enter you password'
+          field='password'
+          secureEntry={true}
+        />
+        <AppSubmitForm
+          text='Login'
+          background='secondary' />
+
+      </AppFormik>
     </AppScreen>
   )
 }
