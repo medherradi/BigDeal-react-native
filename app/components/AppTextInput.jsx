@@ -3,11 +3,19 @@ import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import colors from '../config/colors'
 
-export default function AppTextInput({ name, placeholder, secureEntry = false, value, onChangeText, onBlur }) {
+export default function AppTextInput({ name, placeholder, value, onChangeText, onBlur, ...othersProps }) {
   return (
     <View style={styles.input}>
       <MaterialIcons name={name} size={30} color={colors.secondary} />
-      <TextInput onBlur={onBlur} value={value} onChangeText={onChangeText} autoCorrect={false} secureTextEntry={secureEntry} placeholder={placeholder} maxLength={30} style={styles.data} />
+      <TextInput
+        onBlur={onBlur}
+        value={value}
+        onChangeText={onChangeText}
+        autoCorrect={false}
+        {...othersProps}
+        placeholder={placeholder}
+        style={styles.data}
+      />
     </View>
   )
 }
@@ -22,7 +30,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     columnGap: 5,
     alignItems: 'center',
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+
   },
   data: {
     flex: 1,
@@ -30,5 +39,6 @@ const styles = StyleSheet.create({
     fontFamily: Platform.OS === 'android' ? 'sans-serif' : 'Avenir',
     fontWeight: '700',
     color: colors.primary,
+
   }
 })

@@ -4,19 +4,19 @@ import { useFormikContext } from 'formik'
 import AppTextInput from './AppTextInput'
 import AppErrorMessage from './AppErrorMessage'
 
-export default function AppInputForm({ name, placeholder, field, secureEntry = false }) {
+export default function AppInputForm({ name, placeholder, field, ...othersProps }) {
 
   const { handleChange, setFieldTouched, values, touched, errors } = useFormikContext()
 
   return (
     <>
       <AppTextInput
-        secureEntry={secureEntry}
         value={values[field]}
         onChangeText={handleChange(field)}
         name={name}
         onBlur={() => setFieldTouched(field)}
         placeholder={placeholder}
+        {...othersProps}
       />
       <AppErrorMessage error={errors[field]} visible={touched[field]}>{errors[field]}</AppErrorMessage>
     </>

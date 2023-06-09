@@ -4,36 +4,22 @@ import AppText from './AppText'
 import colors from '../config/colors'
 import { MaterialIcons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import AppButton from './AppButton'
 import AppScreen from './AppScreen'
 
 
-const Category = [
-  {
-    id: 1,
-    label: 'Furniture',
-  },
-  {
-    id: 2,
-    label: 'Clothing',
-  },
-  {
-    id: 3,
-    label: 'Gadget',
-  }
-]
 
-export default function AppPicker({ name, category }) {
 
+export default function AppPicker({ items, onSelectItem, selectedItem }) {
   const [modalVisible, setModalVisible] = useState(false)
-  const [modalCategory, setModalCategory] = useState('')
+
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={styles.input}>
-          <MaterialIcons name={name} size={30} color={colors.secondary} />
-          <AppText style={styles.select}>{modalCategory ? modalCategory : category}</AppText>
+          <MaterialIcons name='apps' size={30} color={colors.secondary} />
+          {selectedItem ? <AppText style={styles.select}>{selectedItem.label}</AppText>
+            : <AppText style={styles.placeholder}>{'Select an item'}</AppText>}
           <MaterialCommunityIcons name="chevron-down-circle-outline" size={24} color={colors.secondary} />
         </View>
       </TouchableWithoutFeedback>
@@ -47,12 +33,12 @@ export default function AppPicker({ name, category }) {
             </View>
           </TouchableWithoutFeedback>
           <View>
-            <FlatList data={Category}
+            <FlatList data={items}
               keyExtractor={(item) => item.id.toString()}
               renderItem={({ item }) => {
                 return (
                   <TouchableOpacity onPress={() => {
-                    setModalCategory(item.label);
+                    onSelectItem(item);
                     setModalVisible(false)
                   }}>
                     <AppText style={styles.choice}>{item.label}</AppText>
@@ -84,6 +70,13 @@ const styles = StyleSheet.create({
     fontFamily: Platform.OS === 'android' ? 'sans-serif' : 'Avenir',
     fontWeight: '700',
     color: colors.primary,
+  },
+  placeholder: {
+    flex: 1,
+    fontSize: 17,
+    fontFamily: Platform.OS === 'android' ? 'sans-serif' : 'Avenir',
+    fontWeight: '700',
+    color: colors.layer,
   },
   close: {
     flexDirection: 'row',
