@@ -3,11 +3,11 @@ import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import colors from '../config/colors'
 
-export default function AppTextInput({ name, placeholder, secureEntry = false, value, onChangeText }) {
+export default function AppTextInput({ name, placeholder, secureEntry = false, value, onChangeText, onBlur }) {
   return (
     <View style={styles.input}>
       <MaterialIcons name={name} size={30} color={colors.secondary} />
-      <TextInput value={value} onChangeText={onChangeText} autoCorrect={false} secureTextEntry={secureEntry} placeholder={placeholder} maxLength={30} style={styles.data} />
+      <TextInput onBlur={onBlur} value={value} onChangeText={onChangeText} autoCorrect={false} secureTextEntry={secureEntry} placeholder={placeholder} maxLength={30} style={styles.data} />
     </View>
   )
 }

@@ -1,25 +1,51 @@
 import { Image, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
+import React from 'react'
 import AppScreen from '../components/AppScreen'
 import AppTextInput from '../components/AppTextInput'
 import AppButton from '../components/AppButton'
 import { Formik } from 'formik'
+import * as yup from 'yup'
+import AppErrorMessage from '../components/AppErrorMessage'
 
+const validationSchema = yup.object().shape({
+  email: yup.string().required().email().label('Email'),
+  password: yup.string().required().min(6).label('Password')
+})
 
 export default function LoginScreen() {
-
 
   return (
     <AppScreen style={styles.login}>
       <Image style={styles.img} source={require('../assets/logo.png')} />
-      <Formik initialValues={{ email: '', password: '' }}
+      <Formik
+        initialValues={{ email: '', password: '' }}
         onSubmit={values => console.log(values)}
+        validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, values, handleBlur }) => (
+        {({ handleChange, handleSubmit, values, setFieldTouched, errors, touched }) => (
           <>
-            <AppTextInput value={values.emailemail} onChangeText={handleChange('email')} name='mail' placeholder='Enter Your Email' />
-            <AppTextInput value={values.passwordpassword} onChangeText={handleChange('password')} secureEntry={true} name='lock' placeholder='Enter Your Password' />
-            <AppButton text='Login' background='secondary' onPress={handleSubmit} />
+            <AppTextInput
+              value={values.email}
+              onChangeText={handleChange('email')}
+              name='mail'
+              onBlur={() => setFieldTouched('email')}
+              placeholder='Enter Your Email'
+            />
+            <AppErrorMessage error={errors.email} visible={touched.email}>{errors.email}</AppErrorMessage>
+            <AppTextInput
+              value={values.password}
+              onChangeText={handleChange('password')}
+              secureEntry={true}
+              name='lock'
+              onBlur={() => setFieldTouched('password')}
+              placeholder='Enter Your Password'
+            />
+            <AppErrorMessage error={errors.password} visible={touched.password}>{errors.password}</AppErrorMessage>
+            <AppButton
+              text='Login'
+              background='secondary'
+              onPress={handleSubmit}
+            />
           </>
         )
         }
