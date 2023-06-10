@@ -5,6 +5,7 @@ import colors from '../config/colors'
 import { MaterialIcons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AppScreen from './AppScreen'
+import AppItemPicker from './AppItemPicker'
 
 
 
@@ -32,19 +33,15 @@ export default function AppPicker({ items, onSelectItem, selectedItem }) {
               <AppText style={styles.text}>close</AppText>
             </View>
           </TouchableWithoutFeedback>
-          <View>
-            <FlatList data={items}
-              keyExtractor={(item) => item.id.toString()}
-              renderItem={({ item }) => {
-                return (
-                  <TouchableOpacity onPress={() => {
-                    onSelectItem(item);
-                    setModalVisible(false)
-                  }}>
-                    <AppText style={styles.choice}>{item.label}</AppText>
-                  </TouchableOpacity>)
-              }}
-            />
+          <View style={styles.grid}>
+            {items.map((item) => {
+              return (<AppItemPicker key={item.id} label={item}
+                onPress={() => {
+                  onSelectItem(item);
+                  setModalVisible(false)
+                }}
+              />)
+            })}
           </View>
         </AppScreen>
       </Modal>
@@ -90,9 +87,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.secondary
   },
-  choice: {
-    padding: 10,
-    fontSize: 17,
-    color: colors.secondary,
-  }
+  grid: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: 'space-around',
+    padding: 15,
+    flexWrap: 'wrap',
+    rowGap: 20,
+  },
 })

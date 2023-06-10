@@ -1,22 +1,20 @@
 import { StyleSheet, FlatList, View } from 'react-native'
 import React, { useState } from 'react'
 import AppMessage from '../components/AppMessage'
-import colors from '../config/colors'
 import AppScreen from '../components/AppScreen'
 import AppSeparator from '../components/AppSeparator'
-import AppText from '../components/AppText'
 import AppSwipe from '../components/AppSwipe'
 
 const initialMessages = [
   {
     id: 1,
-    name: 'ahmed',
+    name: 'Ahmed',
     content: 'i would like to know the last price...',
     picture: require('../assets/profile.jpg'),
   },
   {
     id: 2,
-    name: 'sarra',
+    name: 'Sarra',
     content: 'can you give us a good price hhhh',
     picture: require('../assets/profile.jpg'),
   }

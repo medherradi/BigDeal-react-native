@@ -17,16 +17,34 @@ const validationSchema = yup.object().shape({
 const Category = [
   {
     id: 1,
-    label: 'Furniture',
+    label: 'Fitness',
+    icon: 'fitness-center',
   },
   {
     id: 2,
-    label: 'Clothing',
+    label: 'Sport',
+    icon: 'sports-soccer',
   },
   {
     id: 3,
-    label: 'Gadget',
-  }
+    label: 'House',
+    icon: 'house',
+  },
+  {
+    id: 4,
+    label: 'Fitness',
+    icon: 'fitness-center',
+  },
+  {
+    id: 5,
+    label: 'Sport',
+    icon: 'sports-soccer',
+  },
+  {
+    id: 6,
+    label: 'House',
+    icon: 'house',
+  },
 ]
 
 export default function CreateItemScreen() {
