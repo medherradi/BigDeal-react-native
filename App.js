@@ -15,11 +15,12 @@ import AppScreen from './app/components/AppScreen';
 import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import CreateItemScreen from './app/screens/CreateItemScreen';
+import AppImagePicker from './app/components/AppImagePicker';
 
 
 export default function App() {
   return (
-    <CreateItemScreen />
+    <AppImagePicker />
   );
 }
 
