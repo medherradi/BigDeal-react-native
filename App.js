@@ -16,14 +16,17 @@ import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import CreateItemScreen from './app/screens/CreateItemScreen';
 import AppImagePicker from './app/components/AppImagePicker';
+import AppNewTextInput from './app/components/AppNewTextInput';
+import NewFormScreen from './app/screens/NewFormScreen';
 
 
 export default function App() {
   return (
-    <AppImagePicker />
+    <NewFormScreen />
   );
 }
 
 
 const styles = StyleSheet.create({
+
 });

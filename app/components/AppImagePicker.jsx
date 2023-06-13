@@ -21,10 +21,7 @@ export default function AppImagePicker() {
     }
   }
 
-
-
   return (
-
     <AppScreen>
       <View style={styles.scroll}>
         <ScrollView horizontal>
@@ -49,11 +46,10 @@ export default function AppImagePicker() {
       </View>
       {(images.length > 1) ? <View style={styles.clearButton}>
         <TouchableHighlight style={styles.clear} onPress={() => setImages([])} underlayColor={colors.light} >
-          <AppText style={styles.text}>clear all</AppText>
+          <AppText style={styles.text}>clear all {images.length}</AppText>
         </TouchableHighlight>
       </View> : null}
     </AppScreen >
-
   )
 }
 
