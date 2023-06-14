@@ -10,7 +10,7 @@ import AppItemPicker from './AppItemPicker'
 
 
 
-export default function AppPicker({ items, onSelectItem, selectedItem }) {
+export default function AppPicker({ items, onSelectItem, selectedItem, placeholder }) {
   const [modalVisible, setModalVisible] = useState(false)
 
 
@@ -20,7 +20,7 @@ export default function AppPicker({ items, onSelectItem, selectedItem }) {
         <View style={styles.input}>
           <MaterialIcons name='apps' size={30} color={colors.secondary} />
           {selectedItem ? <AppText style={styles.select}>{selectedItem.label}</AppText>
-            : <AppText style={styles.placeholder}>{'Select an item'}</AppText>}
+            : <AppText style={styles.placeholder}>{placeholder}</AppText>}
           <MaterialCommunityIcons name="chevron-down-circle-outline" size={24} color={colors.secondary} />
         </View>
       </TouchableWithoutFeedback>

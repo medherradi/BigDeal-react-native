@@ -22,7 +22,7 @@ import NewFormScreen from './app/screens/NewFormScreen';
 
 export default function App() {
   return (
-    <NewFormScreen />
+    <CreateItemScreen />
   );
 }
 
